@@ -1,5 +1,12 @@
 <template>
   <div class="container">
+    <div v-if="isLoading" class="card">
+      <div class="product-container">
+        <div class="skeleton-container">
+          <div class="loader"></div>
+        </div>
+      </div>
+    </div>
     <div
       v-else
       class="container"
