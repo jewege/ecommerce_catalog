@@ -2,7 +2,7 @@
   <div class="container">
     <div v-if="isLoading" class="card">
       <div class="product-container">
-        <div class="skeleton-container">
+        <div class="loader-container">
           <div class="loader"></div>
         </div>
       </div>
@@ -15,9 +15,7 @@
           ? 'bg-light-gray'
           : product.data.category === 'men\'s clothing'
           ? 'bg-light-blue'
-          : 'bg-light-pink'
-      "
-    >
+          : 'bg-light-pink'">
       <div class="overlay">
         <img src="../assets/bg-shape.svg" alt="background overlay" />
       </div>
@@ -26,7 +24,7 @@
           <div class="overlay">
             <img
               src="../assets/bg-sad.svg"
-              alt="background unavailable product"
+              alt="unavailable product"
               srcset=""
             />
           </div>
@@ -91,10 +89,10 @@
                     <span
                       :class="
                         product.data.category === 'men\'s clothing'
-                          ? 'border-navy'
-                          : 'border-pink-dark'
+                          ? 'bg-navy'
+                          : 'bg-pink-dark'
                       "
-                      class="circle"
+                      class="circle full"
                     ></span>
                     <span
                       :class="
@@ -102,7 +100,7 @@
                           ? 'border-navy'
                           : 'border-pink-dark'
                       "
-                      class="circle"
+                      class="circle full"
                     ></span>
                   </div>
                 </div>
@@ -170,6 +168,7 @@ export default {
         `https://fakestoreapi.com/products/${this.index}`
       )
       const result = await response.json()
+      console.log(result)
       return result
     },
     async getSingleProduct () {
