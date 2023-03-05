@@ -15,7 +15,9 @@
           ? 'bg-light-gray'
           : product.data.category === 'men\'s clothing'
           ? 'bg-light-blue'
-          : 'bg-light-pink'">
+          : 'bg-light-pink'
+      "
+    >
       <div class="overlay">
         <img src="../assets/bg-shape.svg" alt="background overlay" />
       </div>
@@ -174,11 +176,7 @@ export default {
     async getSingleProduct () {
       this.isLoading = true
 
-      if (this.index !== 20) {
-        this.index++
-      } else {
-        this.index = 1
-      }
+      this.index == 20 ? (this.index = 1) : this.index++
 
       let data = await this.callAPI()
       if (
